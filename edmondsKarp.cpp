@@ -1,9 +1,9 @@
 #include <iostream>
 #include <stdlib.h>
 #include <vector>
+#include <queue>
 #include <chrono>
-#include "../edge.cpp"
-#include "queue.cpp"
+#include "edge.cpp"
 
 using namespace std;
 
@@ -26,15 +26,16 @@ int edmondsKarp(vector<vector<Edge>>& edges)
     {
         fill(visited.begin(), visited.end(), 0);
 
-        queue* q = createQueue();
-        push(q, 0);
+        queue<int> q;
+        q.push(0);
         visited[0] = 1;
 
         bool foundPath = false;
 
-        while (q->head != NULL)
+        while (!q.empty())
         {
-            int u = pop(q);
+            int u = q.front();
+            q.pop();
 
             if (u == sink)
             {
@@ -51,12 +52,10 @@ int edmondsKarp(vector<vector<Edge>>& edges)
                 {
                     visited[v] = 1;
                     parent[v] = {u, i};
-                    push(q, v);
+                    q.push(v);
                 }
             }
         }
-
-        freeQueue(q);
 
         if (!foundPath)
             break;

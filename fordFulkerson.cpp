@@ -1,9 +1,9 @@
 #include <iostream>
 #include <stdlib.h>
 #include <vector>
+#include <stack>
 #include <chrono>
-#include "../edge.cpp"
-#include "stack.cpp"
+#include "edge.cpp"
 
 using namespace std;
 
@@ -26,15 +26,16 @@ int fordFulkerson(vector<vector<Edge>>& edges)
     {
         fill(visited.begin(), visited.end(), 0);
 
-        stack* s = createStack();
-        push(s, 0);
+        stack<int> s;
+        s.push(0);
         visited[0] = 1;
 
         bool foundPath = false;
 
-        while (s->top != NULL)
+        while (!s.empty())
         {
-            int u = pop(s);
+            int u = s.top();
+            s.pop();
 
             if (u == sink)
             {
@@ -51,13 +52,11 @@ int fordFulkerson(vector<vector<Edge>>& edges)
                 {
                     visited[v] = 1;
                     parent[v] = {u, i};
-                    push(s, v);
+                    s.push(v);
                 }
             }
         }
-
-        freeStack(s);
-
+        
         if (!foundPath)
             break;
 

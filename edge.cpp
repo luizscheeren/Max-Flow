@@ -17,7 +17,7 @@ void add_edge( vector<vector<Edge>> &edges, int source, int destination, int max
 
     Edge forward = {destination, maxCapacity, 0, (int)(edges[destination].size())};
     
-    Edge backward = {source, 0, 0, (int)(edges[source].size())};
+    Edge backward = {source, maxCapacity, maxCapacity, (int)(edges[source].size())};
     
     edges[source].push_back(forward);
     edges[destination].push_back(backward);
