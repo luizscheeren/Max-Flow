@@ -1,4 +1,5 @@
 .vscode/
+dimacs_BVZ/
 *.exe
 *.o
 *.out

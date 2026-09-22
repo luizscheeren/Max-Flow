@@ -3,6 +3,9 @@
 #include <vector>
 #include <queue>
 #include <chrono>
+#include <fstream>
+#include <sstream>
+#include <string>
 #include "edge.cpp"
 
 using namespace std;
@@ -12,12 +15,10 @@ struct path {
     int idEdge;
 };
 
-int edmondsKarp(vector<vector<Edge>>& edges)
+int edmondsKarp(vector<vector<Edge>>& edges, int source, int sink)
 {
     int maxFlow = 0;
-    int pathFlow = INT_MAX;
     int size = edges.size();
-    int sink = size - 1; 
 
     vector<int> visited(size, 0);
     vector<path> parent(size);
@@ -27,8 +28,8 @@ int edmondsKarp(vector<vector<Edge>>& edges)
         fill(visited.begin(), visited.end(), 0);
 
         queue<int> q;
-        q.push(0);
-        visited[0] = 1;
+        q.push(source);
+        visited[source] = 1;
 
         bool foundPath = false;
 
@@ -60,14 +61,16 @@ int edmondsKarp(vector<vector<Edge>>& edges)
         if (!foundPath)
             break;
 
-        for (int v = sink; v != 0; v = parent[v].origin)
+        int pathFlow = INT_MAX;
+
+        for (int v = sink; v != source; v = parent[v].origin)
         {
             int u = parent[v].origin;
             int id = parent[v].idEdge;
             pathFlow = min(pathFlow, edges[u][id].maxCapacity - edges[u][id].flow);
         }
 
-        for (int v = sink; v != 0; v = parent[v].origin)
+        for (int v = sink; v != source; v = parent[v].origin)
         {
             int u = parent[v].origin;
             int id = parent[v].idEdge;
@@ -85,22 +88,54 @@ int edmondsKarp(vector<vector<Edge>>& edges)
 
 int main()
 {
-    vector<vector<Edge>> edges(7);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
-    // 0=s, 1=a, 2=b, 3=c, 4=d, 5=e, 6=t
-    add_edge(edges, 0, 1, 3);
-    add_edge(edges, 0, 3, 5);
-    add_edge(edges, 1, 2, 1);
-    add_edge(edges, 1, 4, 2);
-    add_edge(edges, 2, 6, 2);
-    add_edge(edges, 3, 4, 4);
-    add_edge(edges, 4, 5, 7);
-    add_edge(edges, 5, 2, 3);
-    add_edge(edges, 5, 6, 7);
+    string filename = "dimacs_BVZ/BVZ-venus/BVZ-venus00.max";
+    ifstream file(filename);
+
+    if (!file.is_open()) {
+        cerr << "Error opening file: " << filename << endl;
+        return 1;
+    }
+
+    int numNodes = 0;
+    int numEdges = 0;
+    int s = -1;
+    int t = -1;
+
+    vector<vector<Edge>> edges;
+
+    char type;
+    while (file >> type) {
+        if (type == 'c') {
+            string comment;
+            getline(file, comment);
+        } 
+        else if (type == 'p') {
+            string problem_type;
+            file >> problem_type >> numNodes >> numEdges;
+            edges.resize(numNodes + 1);
+        } 
+        else if (type == 'n') {
+            int id;
+            char role;
+            file >> id >> role;
+            if (role == 's') s = id;
+            else if (role == 't') t = id;
+        } 
+        else if (type == 'a') {
+            int u, v, cap;
+            file >> u >> v >> cap;
+            add_edge(edges, u, v, cap);
+        }
+    }
+
+    file.close();
 
     auto start = chrono::high_resolution_clock::now();
 
-    cout << "Max Flow: " << edmondsKarp(edges) << endl;
+    cout << "Max Flow: " << edmondsKarp(edges, s, t) << endl;
 
     auto end = chrono::high_resolution_clock::now();
 

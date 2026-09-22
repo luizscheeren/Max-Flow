@@ -4,23 +4,59 @@
 #include <queue>
 #include <stack>
 #include <chrono>
+#include <fstream>
+#include <sstream>
+#include <string>
 #include "edge.cpp"
 
 using namespace std;
 
-int dinic(vector<vector<Edge>>& edges)
+int blockingFlow(vector<vector<Edge>>& edges, int source, int sink, vector<int>& level, vector<int>& start, int& pathFlow, stack<int>& s)
+{
+    int u = s.top();
+
+    if (u == sink)
+    {
+        s.pop();
+        return pathFlow ;
+    }
+
+    for ( int& i = start[u]; i < (int)edges[u].size(); i++)
+    {
+        Edge& e = edges[u][i];
+        int v = e.destination;
+
+        if (level[v] == level[u] + 1 && e.maxCapacity - e.flow > 0)
+        {
+            s.push(v);
+            int pathF = min(pathFlow, e.maxCapacity - e.flow);
+            pathF = blockingFlow(edges, source, sink, level, start, pathF, s);
+            if(pathF >= 0)
+            {
+                e.flow += pathF;
+                edges[e.destination][e.twin].flow -= pathF;
+                s.pop();
+                return pathF;
+            }
+        }
+    }
+
+    s.pop();
+    return -1;
+
+}
+
+int dinic(vector<vector<Edge>>& edges, int source, int sink)
 {
     int maxFlow = 0;
-    int pathFlow = INT_MAX;
     int size = edges.size();
-    int sink = size - 1; 
 
     while (true)
     {
         vector<int> level(size, -1);
         queue<int> q;
-        q.push(0);
-        level[0] = 0;
+        q.push(source);
+        level[source] = 0;
 
         while (!q.empty())
         {
@@ -45,65 +81,16 @@ int dinic(vector<vector<Edge>>& edges)
             break;
         }
 
-        vector<int> start(size, 0);
-
         while (true)
         {
-            pathFlow = INT_MAX;
+            vector<int> start(size, 0);
+            int pathFlow = INT_MAX;
             stack<int> s;
-            s.push(0);
+            s.push(source);
 
-            while (!s.empty())
-            {
-                int u = s.top();
-
-                if (u == sink)
-                {
-                    break;
-                }
-
-                int i = 0;
-                int path = 0;
-                for ( i = start[u]; i < (int)edges[u].size(); i++)
-                {
-                    Edge& e = edges[u][i];
-                    int v = e.destination;
-
-                    if (level[v] == level[u] + 1 && e.maxCapacity - e.flow > 0)
-                    {
-                        s.push(v);
-                        pathFlow = min(pathFlow, e.maxCapacity - e.flow);
-                        path = 1;
-                        break;
-                    }
-                }
-                start[u] = i+1;
-
-                if (!path)
-                {
-                    s.pop();
-                }
-            }
-
-            if (s.empty() || s.top() != sink)
+            pathFlow = blockingFlow(edges, source, sink, level, start, pathFlow, s);
+            if (pathFlow == -1)
                 break;
-
-            for (int u = sink; u != 0;)
-            {
-                int p = s.top();
-                s.pop();
-
-                for (Edge& e : edges[p])
-                {
-                    if (e.destination == u)
-                    {
-                        e.flow += pathFlow;
-                        edges[e.destination][e.twin].flow -= pathFlow;
-                        u = p;
-                        break;
-                    }
-                }
-            }
 
             maxFlow += pathFlow;
         }
@@ -113,22 +100,54 @@ int dinic(vector<vector<Edge>>& edges)
 
 int main()
 {
-    vector<vector<Edge>> edges(7);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
-    // 0=s, 1=a, 2=b, 3=c, 4=d, 5=e, 6=t
-    add_edge(edges, 0, 1, 3);
-    add_edge(edges, 0, 3, 5);
-    add_edge(edges, 1, 2, 1);
-    add_edge(edges, 1, 4, 2);
-    add_edge(edges, 2, 6, 2);
-    add_edge(edges, 3, 4, 4);
-    add_edge(edges, 4, 5, 7);
-    add_edge(edges, 5, 2, 3);
-    add_edge(edges, 5, 6, 7);
+    string filename = "dimacs_BVZ/teste01.max";
+    ifstream file(filename);
+
+    if (!file.is_open()) {
+        cerr << "Error opening file: " << filename << endl;
+        return 1;
+    }
+
+    int numNodes = 0;
+    int numEdges = 0;
+    int s = -1;
+    int t = -1;
+
+    vector<vector<Edge>> edges;
+
+    char type;
+    while (file >> type) {
+        if (type == 'c') {
+            string comment;
+            getline(file, comment);
+        } 
+        else if (type == 'p') {
+            string problem_type;
+            file >> problem_type >> numNodes >> numEdges;
+            edges.resize(numNodes + 1);
+        } 
+        else if (type == 'n') {
+            int id;
+            char role;
+            file >> id >> role;
+            if (role == 's') s = id;
+            else if (role == 't') t = id;
+        } 
+        else if (type == 'a') {
+            int u, v, cap;
+            file >> u >> v >> cap;
+            add_edge(edges, u, v, cap);
+        }
+    }
+
+    file.close();
 
     auto start = chrono::high_resolution_clock::now();
 
-    cout << "Max Flow: " << dinic(edges) << endl;
+    cout << "Max Flow: " << dinic(edges, s, t) << endl;
 
     auto end = chrono::high_resolution_clock::now();
 
