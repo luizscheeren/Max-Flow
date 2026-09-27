@@ -6,14 +6,21 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include "edge.cpp"
+
+#ifndef EDGE_CPP
+#define EDGE_CPP
+    #include "edge.cpp"
+#endif
+
+#ifndef PATH
+#define PATH
+    struct path {
+        int origin;
+        int idEdge;
+    };
+#endif
 
 using namespace std;
-
-struct path {
-    int origin;
-    int idEdge;
-};
 
 int edmondsKarp(vector<vector<Edge>>& edges, int source, int sink)
 {
@@ -86,62 +93,62 @@ int edmondsKarp(vector<vector<Edge>>& edges, int source, int sink)
     return maxFlow;
 }
 
-int main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(NULL);
 
-    string filename = "dimacs_BVZ/BVZ-venus/BVZ-venus00.max";
-    ifstream file(filename);
+//     string filename = "dimacs_deconv/graph3x3.max";
+//     ifstream file(filename);
 
-    if (!file.is_open()) {
-        cerr << "Error opening file: " << filename << endl;
-        return 1;
-    }
+//     if (!file.is_open()) {
+//         cerr << "Error opening file: " << filename << endl;
+//         return 1;
+//     }
 
-    int numNodes = 0;
-    int numEdges = 0;
-    int s = -1;
-    int t = -1;
+//     int numNodes = 0;
+//     int numEdges = 0;
+//     int s = -1;
+//     int t = -1;
 
-    vector<vector<Edge>> edges;
+//     vector<vector<Edge>> edges;
 
-    char type;
-    while (file >> type) {
-        if (type == 'c') {
-            string comment;
-            getline(file, comment);
-        } 
-        else if (type == 'p') {
-            string problem_type;
-            file >> problem_type >> numNodes >> numEdges;
-            edges.resize(numNodes + 1);
-        } 
-        else if (type == 'n') {
-            int id;
-            char role;
-            file >> id >> role;
-            if (role == 's') s = id;
-            else if (role == 't') t = id;
-        } 
-        else if (type == 'a') {
-            int u, v, cap;
-            file >> u >> v >> cap;
-            add_edge(edges, u, v, cap);
-        }
-    }
+//     char type;
+//     while (file >> type) {
+//         if (type == 'c') {
+//             string comment;
+//             getline(file, comment);
+//         } 
+//         else if (type == 'p') {
+//             string problem_type;
+//             file >> problem_type >> numNodes >> numEdges;
+//             edges.resize(numNodes + 1);
+//         } 
+//         else if (type == 'n') {
+//             int id;
+//             char role;
+//             file >> id >> role;
+//             if (role == 's') s = id;
+//             else if (role == 't') t = id;
+//         } 
+//         else if (type == 'a') {
+//             int u, v, cap;
+//             file >> u >> v >> cap;
+//             add_edge(edges, u, v, cap);
+//         }
+//     }
 
-    file.close();
+//     file.close();
 
-    auto start = chrono::high_resolution_clock::now();
+//     auto start = chrono::high_resolution_clock::now();
 
-    cout << "Max Flow: " << edmondsKarp(edges, s, t) << endl;
+//     cout << "Max Flow: " << edmondsKarp(edges, s, t) << endl;
 
-    auto end = chrono::high_resolution_clock::now();
+//     auto end = chrono::high_resolution_clock::now();
 
-    auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+//     auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
 
-    cout << "Execution time: " << duration.count() << " microseconds" << endl;
+//     cout << "Execution time: " << duration.count() << " microseconds" << endl;
 
-    return 0;
-}
+//     return 0;
+// }

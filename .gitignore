@@ -1,5 +1,5 @@
 .vscode/
-dimacs_BVZ/
+dimacs_deconv/
 *.exe
 *.o
 *.out

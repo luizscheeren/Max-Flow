@@ -4,49 +4,55 @@
 #include <queue>
 #include <stack>
 #include <chrono>
-#include "edge.cpp"
+#include <fstream>
+#include <sstream>
+#include <string>
+
+#ifndef EDGE_CPP
+#define EDGE_CPP
+    #include "edge.cpp"
+#endif
+
 
 using namespace std;
 
-int pushRelabel(vector<vector<Edge>>& edges)
+int pushRelabel(vector<vector<Edge>>& edges, int source, int sink)
 {
     int maxFlow = 0;
     int size = edges.size();
-    int sink = size - 1; 
 
     vector<int> height(size, 0);
     vector<int> excess(size, 0);
-    vector<int> current(size, 0);
+    vector<int> start(size, 0);
+    vector<int> queued(size, 0);
 
-    height[0] = size;
+    height[source] = size;
+
+    queue<int> q;
  
-    for (Edge& e : edges[0])
+    for (Edge& e : edges[source])
     {
         e.flow = e.maxCapacity;
         edges[e.destination][e.twin].flow -= e.maxCapacity;
         excess[e.destination] += e.maxCapacity;
-        excess[0] -= e.maxCapacity;
-    }
-
-    queue<int> q;
-    for (int i = 1; i < size - 1; i++)
-    {
-        if (excess[i] > 0)
-            q.push(i);
+        excess[source] -= e.maxCapacity;
+        q.push(e.destination);
+        queued[e.destination] = 1;
     }
 
     while (!q.empty())
     {
         int u = q.front();
         q.pop();
+        queued[u] = 0;
 
-        int h  = size;
+        int h  = INT_MAX;
 
         while (excess[u] > 0)
         {
-            if (current[u] < (int)edges[u].size())
+            if (start[u] < (int)edges[u].size())
             {
-                Edge& e = edges[u][current[u]];
+                Edge& e = edges[u][start[u]];
                 if (e.maxCapacity - e.flow > 0 && height[u] == height[e.destination] + 1)
                 {
                     int flow = min(excess[u], e.maxCapacity - e.flow);
@@ -55,33 +61,41 @@ int pushRelabel(vector<vector<Edge>>& edges)
                     excess[e.destination] += flow;
                     excess[u] -= flow;
 
-                    if (excess[e.destination] > 0 && e.destination != sink && e.destination != 0)
+                    if (e.destination != sink && e.destination != source && !queued[e.destination])
                     {
                         q.push(e.destination);
+                        queued[e.destination] = 1;
                     }
 
-                    //h = min(h, height[e.destination]);
-                    current[u]++;
+                    if(e.maxCapacity - e.flow == 0)
+                    {
+                        start[u]++;
+                    }
+
+                    if (excess[u] == 0)
+                    {
+                        start[u] = 0;
+                    }
                 }
                 else
                 {   
                     if (e.maxCapacity - e.flow > 0)
                     {
-                    h = min(h, height[e.destination]);
+                        h = min(h, height[e.destination]);
                     }
-                    current[u]++;
+                    start[u]++;
                 }
             }
             else
             {
                 height[u] = h + 1;
-                h = size;
-                current[u] = 0;
+                h = INT_MAX;
+                start[u] = 0;
             }
         }
     }
 
-    for (Edge& e : edges[0])
+    for (Edge& e : edges[source])
     {
         maxFlow += e.flow;
     }
@@ -89,30 +103,62 @@ int pushRelabel(vector<vector<Edge>>& edges)
     return maxFlow;
 }
 
-int main()
-{
-    vector<vector<Edge>> edges(7);
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(NULL);
 
-    // 0=s, 1=a, 2=b, 3=c, 4=d, 5=e, 6=t
-    add_edge(edges, 0, 1, 3);
-    add_edge(edges, 0, 3, 5);
-    add_edge(edges, 1, 2, 1);
-    add_edge(edges, 1, 4, 2);
-    add_edge(edges, 2, 6, 2);
-    add_edge(edges, 3, 4, 4);
-    add_edge(edges, 4, 5, 7);
-    add_edge(edges, 5, 2, 3);
-    add_edge(edges, 5, 6, 7);
+//     string filename = "dimacs_deconv/graph3x3.max";
+//     ifstream file(filename);
 
-    auto start = chrono::high_resolution_clock::now();
+//     if (!file.is_open()) {
+//         cerr << "Error opening file: " << filename << endl;
+//         return 1;
+//     }
 
-    cout << "Max Flow: " << pushRelabel(edges) << endl;
+//     int numNodes = 0;
+//     int numEdges = 0;
+//     int s = -1;
+//     int t = -1;
 
-    auto end = chrono::high_resolution_clock::now();
+//     vector<vector<Edge>> edges;
 
-    auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+//     char type;
+//     while (file >> type) {
+//         if (type == 'c') {
+//             string comment;
+//             getline(file, comment);
+//         } 
+//         else if (type == 'p') {
+//             string problem_type;
+//             file >> problem_type >> numNodes >> numEdges;
+//             edges.resize(numNodes + 1);
+//         } 
+//         else if (type == 'n') {
+//             int id;
+//             char role;
+//             file >> id >> role;
+//             if (role == 's') s = id;
+//             else if (role == 't') t = id;
+//         } 
+//         else if (type == 'a') {
+//             int u, v, cap;
+//             file >> u >> v >> cap;
+//             add_edge(edges, u, v, cap);
+//         }
+//     }
 
-    cout << "Execution time: " << duration.count() << " microseconds" << endl;
+//     file.close();
 
-    return 0;
-}
+//     auto start = chrono::high_resolution_clock::now();
+
+//     cout << "Max Flow: " << pushRelabel(edges, s, t) << endl;
+
+//     auto end = chrono::high_resolution_clock::now();
+
+//     auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+
+//     cout << "Execution time: " << duration.count() << " microseconds" << endl;
+
+//     return 0;
+// }
