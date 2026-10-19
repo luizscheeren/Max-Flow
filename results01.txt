@@ -1,0 +1,97 @@
+========================================
+Arquivo: dimacs_deconv/graph3x3.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 5668675
+ Execution time: 202183890 microseconds
+
+EdmondsKarp
+ Max Flow: 5668675
+ Execution time: 35312447 microseconds
+
+Dinic
+ Max Flow: 5668675
+ Execution time: 12781689 microseconds
+
+PushRelabel
+ Max Flow: 5668675
+ Execution time: 61092 microseconds
+
+========================================
+Arquivo: dimacs_deconv/graph5x5.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 6849322
+ Execution time: 1138616860 microseconds
+
+EdmondsKarp
+ Max Flow: 6849322
+ Execution time: 272979109 microseconds
+
+Dinic
+ Max Flow: 6849322
+ Execution time: 69382094 microseconds
+
+PushRelabel
+ Max Flow: 6849322
+ Execution time: 304866 microseconds
+
+========================================
+Arquivo: dimacs_BVZ/BVZ-tsukuba/export/BVZ-tsukuba/BVZ-tsukuba0.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 34669
+ Execution time: 299983533 microseconds
+
+EdmondsKarp
+ Max Flow: 34669
+ Execution time: 354125429 microseconds
+
+Dinic
+ Max Flow: 34669
+ Execution time: 239370535 microseconds
+
+PushRelabel
+ Status: TIMEOUT (cancelado apos 1 hora)
+
+========================================
+Arquivo: dimacs_BVZ/BVZ-sawtooth/export/BVZ-sawtooth/BVZ-sawtooth0.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 265530
+ Execution time: 1680037896 microseconds
+
+EdmondsKarp
+ Max Flow: 265530
+ Execution time: 1938889334 microseconds
+
+Dinic
+ Max Flow: 265530
+ Execution time: 1029585731 microseconds
+
+PushRelabel
+ Status: TIMEOUT (cancelado apos 1 hora)
+
+========================================
+Arquivo: dimacs_BVZ/BVZ-venus/export/BVZ-venus/BVZ-venus0.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 360038
+ Execution time: 2853061117 microseconds
+
+EdmondsKarp
+ Max Flow: 360038
+ Execution time: 3344125825 microseconds
+
+Dinic
+ Max Flow: 360038
+ Execution time: 1682180812 microseconds
+
+PushRelabel
+ Status: TIMEOUT (cancelado apos 1 hora)
+

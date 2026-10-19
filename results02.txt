@@ -1,0 +1,120 @@
+========================================
+Arquivo: dimacs_deconv/graph3x3.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 5668675
+ 1: 208109644 microseconds
+ 2: 204684654 microseconds
+ 3: 202104010 microseconds
+ Average: 204966102.67 microseconds
+
+EdmondsKarp
+ Max Flow: 5668675
+ 1: 35987145 microseconds
+ 2: 34841402 microseconds
+ 3: 34339998 microseconds
+ Average: 35056181.67 microseconds
+
+Dinic
+ Max Flow: 5668675
+ 1: 13069454 microseconds
+ 2: 12107471 microseconds
+ 3: 12518662 microseconds
+ Average: 12565195.67 microseconds
+
+PushRelabel
+ Max Flow: 5668675
+ 1: 50621 microseconds
+ 2: 50881 microseconds
+ 3: 50648 microseconds
+ Average: 50716.67 microseconds
+
+========================================
+Arquivo: dimacs_deconv/graph5x5.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 6849322
+ 1: 1143644352 microseconds
+ 2: 1147667593 microseconds
+ 3: 1147434937 microseconds
+ Average: 1146248960.67 microseconds
+
+EdmondsKarp
+ Max Flow: 6849322
+ 1: 276007175 microseconds
+ 2: 274535203 microseconds
+ 3: 274254655 microseconds
+ Average: 274932344.33 microseconds
+
+Dinic
+ Max Flow: 6849322
+ 1: 70143245 microseconds
+ 2: 69676001 microseconds
+ 3: 69889485 microseconds
+ Average: 69902910.33 microseconds
+
+PushRelabel
+ Max Flow: 6849322
+ 1: 190226 microseconds
+ 2: 197344 microseconds
+ 3: 210209 microseconds
+ Average: 199259.67 microseconds
+
+========================================
+Arquivo: dimacs_BVZ/BVZ-sawtooth/export/BVZ-sawtooth/BVZ-sawtooth0.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 265530
+ 1: 1705610425 microseconds
+ 2: 1701094206 microseconds
+ 3: 1703278751 microseconds
+ Average: 1703327794.00 microseconds
+
+EdmondsKarp
+ Max Flow: 265530
+ 1: 1946357640 microseconds
+ 2: 1944653748 microseconds
+ 3: 1966751569 microseconds
+ Average: 1952587652.33 microseconds
+
+Dinic
+ Max Flow: 265530
+ 1: 1024717546 microseconds
+ 2: 1021967033 microseconds
+ 3: 1021807397 microseconds
+ Average: 1022830658.67 microseconds
+
+PushRelabel
+ Status: TIMEOUT
+
+========================================
+Arquivo: dimacs_BVZ/BVZ-tsukuba/export/BVZ-tsukuba/BVZ-tsukuba0.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 34669
+ 1: 302283449 microseconds
+ 2: 302746237 microseconds
+ 3: 304001257 microseconds
+ Average: 303010314.33 microseconds
+
+EdmondsKarp
+ Max Flow: 34669
+ 1: 353576918 microseconds
+ 2: 354405789 microseconds
+ 3: 354043265 microseconds
+ Average: 354008657.33 microseconds
+
+Dinic
+ Max Flow: 34669
+ 1: 236808049 microseconds
+ 2: 236951515 microseconds
+ 3: 237468081 microseconds
+ Average: 237075881.67 microseconds
+
+PushRelabel
+ Status: TIMEOUT
+
