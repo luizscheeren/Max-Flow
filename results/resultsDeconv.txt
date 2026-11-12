@@ -1,0 +1,64 @@
+========================================
+Arquivo: dimacs/dimacs_deconv/graph3x3.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 5668675
+ 1: 209206643 microseconds
+ 2: 211934423 microseconds
+ 3: 206350837 microseconds
+ Average: 209163967.67 microseconds
+
+EdmondsKarp
+ Max Flow: 5668675
+ 1: 35643578 microseconds
+ 2: 35484066 microseconds
+ 3: 35196259 microseconds
+ Average: 35441301.00 microseconds
+
+Dinic
+ Max Flow: 5668675
+ 1: 12686024 microseconds
+ 2: 12578255 microseconds
+ 3: 12681537 microseconds
+ Average: 12648605.33 microseconds
+
+PushRelabel
+ Max Flow: 5668675
+ 1: 49614 microseconds
+ 2: 51621 microseconds
+ 3: 50900 microseconds
+ Average: 50711.67 microseconds
+
+========================================
+Arquivo: dimacs/dimacs_deconv/graph5x5.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 6849322
+ 1: 1153221510 microseconds
+ 2: 1145905235 microseconds
+ 3: 1151689206 microseconds
+ Average: 1150271983.67 microseconds
+
+EdmondsKarp
+ Max Flow: 6849322
+ 1: 275345536 microseconds
+ 2: 276166218 microseconds
+ 3: 275549459 microseconds
+ Average: 275687071.00 microseconds
+
+Dinic
+ Max Flow: 6849322
+ 1: 70075667 microseconds
+ 2: 70141092 microseconds
+ 3: 69852794 microseconds
+ Average: 70023184.33 microseconds
+
+PushRelabel
+ Max Flow: 6849322
+ 1: 195345 microseconds
+ 2: 255579 microseconds
+ 3: 238797 microseconds
+ Average: 229907.00 microseconds
+

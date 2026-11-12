@@ -13,12 +13,24 @@ typedef struct tagEdge {
 
 } Edge;
 
-void add_edge( vector<vector<Edge>> &edges, int source, int destination, int maxCapacity) {
+void add_edge(vector<vector<Edge>> &edges, int source, int destination, int maxCapacity) {
+    int u = source;
+    int v = destination;
+    int forwardCapacity = maxCapacity;
+    int backwardCapacity = maxCapacity;
+    int backwardFlow = maxCapacity;
 
-    Edge forward = {destination, maxCapacity, 0, (int)(edges[destination].size())};
+    if (maxCapacity < 0) {
+        u = destination;
+        v = source;
+        forwardCapacity = -maxCapacity;
+        backwardCapacity = 0;
+        backwardFlow = 0;
+    }
+
+    Edge forward = {v, forwardCapacity, 0, (int)(edges[v].size())};
+    Edge backward = {u, backwardCapacity, backwardFlow, (int)(edges[u].size())};
     
-    Edge backward = {source, maxCapacity, maxCapacity, (int)(edges[source].size())};
-    
-    edges[source].push_back(forward);
-    edges[destination].push_back(backward);
+    edges[u].push_back(forward);
+    edges[v].push_back(backward);
 }

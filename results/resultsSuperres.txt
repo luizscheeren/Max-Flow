@@ -1,0 +1,96 @@
+========================================
+Arquivo: dimacs/dimacs_super_res/super_res-E1.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 73180322
+ 1: 7691230 microseconds
+ 2: 7714832 microseconds
+ 3: 7491787 microseconds
+ Average: 7632616.33 microseconds
+
+EdmondsKarp
+ Max Flow: 73180322
+ 1: 13792229 microseconds
+ 2: 13461754 microseconds
+ 3: 13651788 microseconds
+ Average: 13635257.00 microseconds
+
+Dinic
+ Max Flow: 73180322
+ 1: 6410644 microseconds
+ 2: 6432970 microseconds
+ 3: 6288319 microseconds
+ Average: 6377311.00 microseconds
+
+PushRelabel
+ Max Flow: 73180322
+ 1: 9525312 microseconds
+ 2: 9778499 microseconds
+ 3: 9195347 microseconds
+ Average: 9499719.33 microseconds
+
+========================================
+Arquivo: dimacs/dimacs_super_res/super_res-E2.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 101279086
+ 1: 21343189 microseconds
+ 2: 21076914 microseconds
+ 3: 21001155 microseconds
+ Average: 21140419.33 microseconds
+
+EdmondsKarp
+ Max Flow: 101279086
+ 1: 44099473 microseconds
+ 2: 44395792 microseconds
+ 3: 44276351 microseconds
+ Average: 44257205.33 microseconds
+
+Dinic
+ Max Flow: 101279086
+ 1: 18001225 microseconds
+ 2: 17905782 microseconds
+ 3: 18017297 microseconds
+ Average: 17974768.00 microseconds
+
+PushRelabel
+ Max Flow: 101279086
+ 1: 9266230 microseconds
+ 2: 9205477 microseconds
+ 3: 9480826 microseconds
+ Average: 9317511.00 microseconds
+
+========================================
+Arquivo: dimacs/dimacs_super_res/superres_graph.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 29641726
+ 1: 984631805 microseconds
+ 2: 939468627 microseconds
+ 3: 934819853 microseconds
+ Average: 952973428.33 microseconds
+
+EdmondsKarp
+ Max Flow: 29641726
+ 1: 759476660 microseconds
+ 2: 759320340 microseconds
+ 3: 757363566 microseconds
+ Average: 758720188.67 microseconds
+
+Dinic
+ Max Flow: 29641726
+ 1: 215387364 microseconds
+ 2: 214677570 microseconds
+ 3: 214628630 microseconds
+ Average: 214897854.67 microseconds
+
+PushRelabel
+ Max Flow: 29641726
+ 1: 134828847 microseconds
+ 2: 135049616 microseconds
+ 3: 135017267 microseconds
+ Average: 134965243.33 microseconds
+

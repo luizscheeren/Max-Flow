@@ -1,0 +1,71 @@
+========================================
+Arquivo: dimacs/dimacs_KZ2/KZ2-tsukuba/KZ2-tsukuba13.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 130469
+ 1: 951412440 microseconds
+ 2: 949458584 microseconds
+ 3: 949634816 microseconds
+ Average: 950168613.33 microseconds
+
+EdmondsKarp
+ Max Flow: 130469
+ 1: 1000062352 microseconds
+ 2: 1001841972 microseconds
+ 3: 1003351635 microseconds
+ Average: 1001751986.33 microseconds
+
+Dinic
+ Max Flow: 130469
+ 1: 471868020 microseconds
+ 2: 472078417 microseconds
+ 3: 473717400 microseconds
+ Average: 472554612.33 microseconds
+
+PushRelabel
+ Max Flow: 130469
+ 1: 79460599 microseconds
+ 2: 78826855 microseconds
+ 3: 80028861 microseconds
+ Average: 79438771.67 microseconds
+
+========================================
+Arquivo: dimacs/dimacs_KZ2/KZ2-tsukuba/KZ2-tsukuba9.max
+========================================
+
+Ford-Fulkerson
+ Status: TIMEOUT
+
+EdmondsKarp
+ Status: TIMEOUT
+
+Dinic
+ Max Flow: 770809
+ 1: 2190015004 microseconds
+ 2: 2187950880 microseconds
+ 3: 2176958728 microseconds
+ Average: 2184974870.67 microseconds
+
+PushRelabel
+ Max Flow: 770809
+ 1: 2765161102 microseconds
+ 2: 2762872713 microseconds
+ 3: 2766531133 microseconds
+ Average: 2764854982.67 microseconds
+
+========================================
+Arquivo: dimacs/dimacs_KZ2/KZ2-tsukuba/KZ2-tsukuba3.max
+========================================
+
+Ford-Fulkerson
+ Status: TIMEOUT
+
+EdmondsKarp
+ Status: TIMEOUT
+
+Dinic
+ Status: TIMEOUT
+
+PushRelabel
+ Status: TIMEOUT

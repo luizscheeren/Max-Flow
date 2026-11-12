@@ -1,0 +1,95 @@
+========================================
+Arquivo: dimacs/dimacs_car/car1.dd/qpbo_problem_16.cleanrescale.bq.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 0
+ 1: 12 microseconds
+ 2: 19 microseconds
+ 3: 12 microseconds
+ Average: 14.33 microseconds
+
+EdmondsKarp
+ Max Flow: 0
+ 1: 15 microseconds
+ 2: 15 microseconds
+ 3: 15 microseconds
+ Average: 15.00 microseconds
+
+Dinic
+ Max Flow: 0
+ 1: 14 microseconds
+ 2: 13 microseconds
+ 3: 14 microseconds
+ Average: 13.67 microseconds
+
+PushRelabel
+ Max Flow: 0
+ 1: 19 microseconds
+ 2: 20 microseconds
+ 3: 24 microseconds
+ Average: 21.00 microseconds
+
+========================================
+Arquivo: dimacs/dimacs_car/car2.dd/qpbo_problem_48.cleanrescale.bq.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 7942
+ 1: 283 microseconds
+ 2: 118 microseconds
+ 3: 197 microseconds
+ Average: 199.33 microseconds
+
+EdmondsKarp
+ Max Flow: 7942
+ 1: 193 microseconds
+ 2: 154 microseconds
+ 3: 152 microseconds
+ Average: 166.33 microseconds
+
+Dinic
+ Max Flow: 7942
+ 1: 193 microseconds
+ 2: 160 microseconds
+ 3: 198 microseconds
+ Average: 183.67 microseconds
+
+PushRelabel
+ Max Flow: 7942
+ 1: 331 microseconds
+ 2: 424 microseconds
+ 3: 333 microseconds
+ Average: 362.67 microseconds
+
+========================================
+Arquivo: dimacs/dimacs_car/car3.dd/qpbo_problem_2.cleanrescale.bq.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 17632
+ 1: 5106 microseconds
+ 2: 11080 microseconds
+ 3: 9911 microseconds
+ Average: 8699.00 microseconds
+
+EdmondsKarp
+ Max Flow: 17632
+ 1: 3537 microseconds
+ 2: 3158 microseconds
+ 3: 3084 microseconds
+ Average: 3259.67 microseconds
+
+Dinic
+ Max Flow: 17632
+ 1: 2619 microseconds
+ 2: 2909 microseconds
+ 3: 2332 microseconds
+ Average: 2620.00 microseconds
+
+PushRelabel
+ Max Flow: 17632
+ 1: 414 microseconds
+ 2: 410 microseconds
+ 3: 495 microseconds
+ Average: 439.67 microseconds

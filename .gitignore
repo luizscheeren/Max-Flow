@@ -1,9 +1,5 @@
 .vscode/
-dimacs_deconv/
-dimacs_BVZ/
-dimacs_deeplogismos/
-dimacs_simcells/
-dimacs_super_res/
+dimacs/
 *.exe
 *.o
 *.out

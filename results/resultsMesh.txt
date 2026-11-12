@@ -1,0 +1,71 @@
+========================================
+Arquivo: dimacs/dimacs_meshsegment/handsmall.segment.bbk.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 185612
+ 1: 28222418 microseconds
+ 2: 28294340 microseconds
+ 3: 28034396 microseconds
+ Average: 28183718.00 microseconds
+
+EdmondsKarp
+ Max Flow: 185612
+ 1: 18204506 microseconds
+ 2: 18374710 microseconds
+ 3: 18118756 microseconds
+ Average: 18232657.33 microseconds
+
+Dinic
+ Max Flow: 185612
+ 1: 10191504 microseconds
+ 2: 10159103 microseconds
+ 3: 10499954 microseconds
+ Average: 10283520.33 microseconds
+
+PushRelabel
+ Max Flow: 185612
+ 1: 108750183 microseconds
+ 2: 108348439 microseconds
+ 3: 107965614 microseconds
+ Average: 108354745.33 microseconds
+
+========================================
+Arquivo: dimacs/dimacs_meshsegment/bunny.segment.bbk.max
+========================================
+
+Ford-Fulkerson
+ Status: TIMEOUT
+
+EdmondsKarp
+ Status: TIMEOUT
+
+Dinic
+ Max Flow: 2077158
+ 1: 1579817794 microseconds
+ 2: 1577046330 microseconds
+ 3: 1578744155 microseconds
+ Average: 1578536093.00 microseconds
+
+PushRelabel
+ Status: TIMEOUT
+
+========================================
+Arquivo: dimacs/dimacs_meshsegment/handbig.segment.bbk.max
+========================================
+
+Ford-Fulkerson
+ Status: TIMEOUT
+
+EdmondsKarp
+ Status: TIMEOUT
+
+Dinic
+ Max Flow: 1857480
+ 1: 2501707669 microseconds
+ 2: 2473149592 microseconds
+ 3: 2467271304 microseconds
+ Average: 2480709521.67 microseconds
+
+PushRelabel
+ Status: TIMEOUT

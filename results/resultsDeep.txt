@@ -1,0 +1,83 @@
+========================================
+Arquivo: dimacs/dimacs_deeplogismos/deeplogismos.5.bbk.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 95624
+ 1: 56611808 microseconds
+ 2: 45858471 microseconds
+ 3: 42777550 microseconds
+ Average: 48415943.00 microseconds
+
+EdmondsKarp
+ Max Flow: 95624
+ 1: 155365472 microseconds
+ 2: 154425875 microseconds
+ 3: 158938243 microseconds
+ Average: 156243196.67 microseconds
+
+Dinic
+ Max Flow: 95624
+ 1: 159973612 microseconds
+ 2: 161301425 microseconds
+ 3: 159906943 microseconds
+ Average: 160393993.33 microseconds
+
+PushRelabel
+ Status: TIMEOUT
+
+========================================
+Arquivo: dimacs/dimacs_deeplogismos/deeplogismos.7.bbk.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 234276
+ 1: 260327320 microseconds
+ 2: 261914537 microseconds
+ 3: 254927492 microseconds
+ Average: 259056449.67 microseconds
+
+EdmondsKarp
+ Max Flow: 234276
+ 1: 735598239 microseconds
+ 2: 734232106 microseconds
+ 3: 737090491 microseconds
+ Average: 735640278.67 microseconds
+
+Dinic
+ Max Flow: 234276
+ 1: 797679204 microseconds
+ 2: 790519491 microseconds
+ 3: 786009990 microseconds
+ Average: 791402895.00 microseconds
+
+PushRelabel
+ Status: TIMEOUT
+
+ ========================================
+Arquivo: dimacs/dimacs_deeplogismos/deeplogismos.8.bbk.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 100899
+ 1: 38158355 microseconds
+ 2: 37651415 microseconds
+ 3: 37551329 microseconds
+ Average: 37787033.00 microseconds
+
+EdmondsKarp
+ Max Flow: 100899
+ 1: 257507601 microseconds
+ 2: 257748675 microseconds
+ 3: 258535147 microseconds
+ Average: 257930474.33 microseconds
+
+Dinic
+ Max Flow: 100899
+ 1: 279918499 microseconds
+ 2: 272075688 microseconds
+ 3: 274132010 microseconds
+ Average: 275375399.00 microseconds
+
+PushRelabel
+ Status: TIMEOUT

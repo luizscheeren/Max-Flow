@@ -1,0 +1,79 @@
+========================================
+Arquivo: dimacs/dimacs_BVZ/BVZ-sawtooth/BVZ-sawtooth8.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 492170
+ 1: 3328585293 microseconds
+ 2: 3323270211 microseconds
+ 3: 3317733796 microseconds
+ Average: 3323196433.33 microseconds
+
+EdmondsKarp
+ Max Flow: 492170
+ 1: 3481079641 microseconds
+ 2: 3452412427 microseconds
+ 3: 3454579892 microseconds
+ Average: 3462690653.33 microseconds
+
+Dinic
+ Max Flow: 492170
+ 1: 1626629553 microseconds
+ 2: 1634208705 microseconds
+ 3: 1627859196 microseconds
+ Average: 1629565818.00 microseconds
+
+PushRelabel
+ Status: TIMEOUT
+
+========================================
+Arquivo: dimacs/dimacs_BVZ/BVZ-sawtooth/BVZ-sawtooth13.max
+========================================
+
+Ford-Fulkerson
+ Status: TIMEOUT
+
+EdmondsKarp
+ Status: TIMEOUT
+
+Dinic
+ Max Flow: 1333498
+ 1: 1536879084 microseconds
+ 2: 1533498416 microseconds
+ 3: 1551465303 microseconds
+ Average: 1540614267.67 microseconds
+
+PushRelabel
+ Status: TIMEOUT
+
+========================================
+Arquivo: dimacs/dimacs_BVZ/BVZ-sawtooth/BVZ-sawtooth17.max
+========================================
+
+Ford-Fulkerson
+ Max Flow: 0
+ 1: 2169 microseconds
+ 2: 2381 microseconds
+ 3: 2401 microseconds
+ Average: 2317.00 microseconds
+
+EdmondsKarp
+ Max Flow: 0
+ 1: 2416 microseconds
+ 2: 2818 microseconds
+ 3: 2385 microseconds
+ Average: 2539.67 microseconds
+
+Dinic
+ Max Flow: 0
+ 1: 1166 microseconds
+ 2: 2258 microseconds
+ 3: 1042 microseconds
+ Average: 1488.67 microseconds
+
+PushRelabel
+ Max Flow: 0
+ 1: 4712 microseconds
+ 2: 4664 microseconds
+ 3: 4656 microseconds
+ Average: 4677.33 microseconds

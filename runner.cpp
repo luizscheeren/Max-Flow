@@ -182,19 +182,10 @@ int main(int argc, char* argv[])
     GetModuleFileNameA(NULL, currentExePath, MAX_PATH);
 
     vector<string> filenames = {
-        "dimacs_deconv/graph3x3.max",
-        "dimacs_deconv/graph5x5.max",
-        "dimacs_BVZ/BVZ-sawtooth/export/BVZ-sawtooth/BVZ-sawtooth0.max",
-        "dimacs_BVZ/BVZ-tsukuba/export/BVZ-tsukuba/BVZ-tsukuba0.max"
-        //"dimacs_deeplogismos/deeplogismos.1.bbk.max/deeplogismos.1.bbk.max",
-        //"dimacs_deeplogismos/deeplogismos.2.bbk.max/deeplogismos.2.bbk.max",
-        //"dimacs_simcells/simcells.sd2.max/export/simcells.sd2.max",
-        //"dimacs_simcells/simcells.sd3.max/export/simcells.sd3.max",
-        //"dimacs_super_res/super_res.1.max/export/super_res.1.max",
-        //"dimacs_super_res/super_res.2.max/export/super_res.2.max"
+        "dimacs/dimacs_BVZ/BVZ-sawtooth/BVZ-sawtooth13.max"
     };
 
-    string outFileName = "results.txt";
+    string outFileName = "results/results.txt";
     ofstream out(outFileName);
 
     if (!out.is_open()) {
